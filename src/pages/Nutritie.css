@@ -1,0 +1,278 @@
+.nutritie {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.calories-summary {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.calories-numbers {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.calories-consumed {
+  font-size: 48px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.calories-separator {
+  font-size: 24px;
+  color: #444;
+}
+
+.calories-needed {
+  font-size: 18px;
+  color: #666;
+}
+
+.calories-track {
+  width: 100%;
+  height: 10px;
+  background: #222;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.calories-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.6s ease;
+}
+
+.calories-remaining {
+  font-size: 13px;
+  color: #666;
+}
+
+.meals-section h3,
+.ai-section h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #ddd;
+}
+
+.meals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.empty {
+  color: #555;
+  font-size: 14px;
+}
+
+.meal-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.meal-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.meal-name {
+  font-size: 15px;
+  color: #ddd;
+  flex: 1;
+}
+
+.meal-calories {
+  font-size: 15px;
+  font-weight: 700;
+  color: #e53e3e;
+}
+
+.meal-delete {
+  background: transparent;
+  border: none;
+  color: #444;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+
+.meal-delete:hover {
+  color: #e53e3e;
+}
+
+.add-meal-row {
+  display: flex;
+  gap: 10px;
+}
+
+.meal-input {
+  flex: 1;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.meal-input:focus {
+  border-color: #e53e3e;
+}
+
+.calories-input {
+  flex: 0 0 90px;
+}
+
+.add-meal-btn {
+  background: #e53e3e;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 22px;
+  width: 46px;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.add-meal-btn:hover {
+  background: #c53030;
+}
+
+.ai-section {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.ai-image-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.ai-upload-btn {
+  background: #1a1a1a;
+  border: 1px dashed #444;
+  border-radius: 12px;
+  padding: 16px;
+  color: #aaa;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.ai-upload-btn:hover {
+  border-color: #e53e3e;
+  color: #e53e3e;
+}
+
+.image-preview-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image-preview {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.ai-analyze-btn {
+  background: #e53e3e;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  width: 100%;
+}
+
+.ai-analyze-btn:hover {
+  background: #c53030;
+}
+
+.ai-analyze-btn:disabled {
+  background: #2a2a2a;
+  color: #555;
+  cursor: not-allowed;
+}
+
+.ai-quick-questions {
+  margin-bottom: 16px;
+}
+
+.ai-questions-label {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.ai-questions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ai-question-btn {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #aaa;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.ai-question-btn:hover {
+  border-color: #e53e3e;
+  color: #fff;
+}
+
+.ai-loading {
+  color: #666;
+  font-size: 14px;
+  padding: 12px 0;
+}
+
+.ai-response {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-left: 3px solid #e53e3e;
+  border-radius: 10px;
+  padding: 16px;
+  color: #ddd;
+  font-size: 14px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
