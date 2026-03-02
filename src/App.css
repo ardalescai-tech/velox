@@ -5,6 +5,11 @@
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   background: #0a0a0a;
   color: #fff;
@@ -22,6 +27,8 @@ body {
 .app {
   display: flex;
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .mobile-header {
@@ -112,7 +119,8 @@ body {
   margin-left: 220px;
   flex: 1;
   padding: 32px;
-  max-width: calc(100vw - 220px);
+  width: calc(100% - 220px);
+  min-width: 0;
 }
 
 .page h2 {
@@ -192,7 +200,7 @@ body {
 
   .main-content {
     margin-left: 0;
-    max-width: 100vw;
+    width: 100%;
     padding: 16px;
     padding-top: 76px;
   }
