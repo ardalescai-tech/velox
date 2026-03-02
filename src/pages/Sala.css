@@ -25,12 +25,13 @@
   font-size: 18px;
   font-weight: 700;
   outline: none;
-  min-width: 200px;
+  min-width: 150px;
 }
 
 .workout-name-input::placeholder {
   color: #444;
   font-weight: 400;
+  font-size: 15px;
 }
 
 .workout-name-input:focus {
@@ -106,6 +107,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .exercise-stat {
@@ -234,4 +236,23 @@
 .rest-day-card p {
   font-size: 16px;
   color: #888;
+}
+
+@media (max-width: 768px) {
+  .exercise-inputs-row {
+    gap: 8px;
+  }
+
+  .exercise-input.small {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+
+  .add-exercise-card {
+    padding: 16px;
+  }
+
+  .exercise-card {
+    padding: 14px 16px;
+  }
 }

@@ -140,7 +140,7 @@
 }
 
 .calories-input {
-  flex: 0 0 90px;
+  flex: 0 0 80px;
 }
 
 .add-meal-btn {
@@ -275,4 +275,22 @@
   font-size: 14px;
   line-height: 1.6;
   white-space: pre-wrap;
+}
+
+@media (max-width: 768px) {
+  .calories-consumed {
+    font-size: 36px;
+  }
+
+  .calories-needed {
+    font-size: 15px;
+  }
+
+  .calories-input {
+    flex: 0 0 70px;
+  }
+
+  .ai-section {
+    padding: 16px;
+  }
 }

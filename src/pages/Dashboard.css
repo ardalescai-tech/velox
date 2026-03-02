@@ -143,3 +143,21 @@
   font-weight: 700;
   color: #fff;
 }
+
+@media (max-width: 768px) {
+  .velox-header h2 {
+    font-size: 20px;
+  }
+
+  .velox-score-number {
+    font-size: 28px;
+  }
+
+  .stat-value {
+    font-size: 22px;
+  }
+
+  .stat-card {
+    padding: 14px;
+  }
+}
