@@ -17,8 +17,7 @@ function Sala({ user }) {
   }, [user])
 
   const loadData = async () => {
-    const today = getTodayKey()
-    const workoutData = await getWorkoutForDay(user.id, today)
+    const workoutData = await getWorkoutForDay(user.id, getTodayKey())
     if (workoutData) {
       setWorkout(workoutData)
       setWorkoutName(workoutData.name || '')
@@ -66,7 +65,6 @@ function Sala({ user }) {
   const askAI = async (exercise) => {
     setAiLoading(true)
     setAiResponse('')
-
     try {
       const response = await fetch('https://api.anthropic.com/v1/messages', {
         method: 'POST',
@@ -76,21 +74,10 @@ function Sala({ user }) {
           max_tokens: 1000,
           messages: [{
             role: 'user',
-            content: `Ești un antrenor personal AI.
-
-Exercițiul: ${exercise.name}
-Sets: ${exercise.sets}
-Repetări: ${exercise.reps}
-Greutate: ${exercise.weight} kg
-
-Răspunde în română în maximum 4 rânduri:
-1. Evaluează dacă greutatea și volumul sunt potrivite pentru progres
-2. Recomandă greutatea optimă și numărul de repetări
-3. Un sfat de tehnică sau siguranță`
+            content: `Ești un antrenor personal AI.\n\nExercițiul: ${exercise.name}\nSets: ${exercise.sets}\nRepetări: ${exercise.reps}\nGreutate: ${exercise.weight} kg\n\nRăspunde în română în maximum 4 rânduri:\n1. Evaluează dacă greutatea și volumul sunt potrivite pentru progres\n2. Recomandă greutatea optimă și numărul de repetări\n3. Un sfat de tehnică sau siguranță`
           }]
         })
       })
-
       const data = await response.json()
       setAiResponse(data.content?.[0]?.text || 'Nu am putut analiza.')
     } catch (err) {
@@ -114,7 +101,7 @@ Răspunde în română în maximum 4 rânduri:
           onBlur={saveWorkoutName}
         />
         <button className={`rest-day-btn ${isRestDay ? 'active' : ''}`} onClick={toggleRestDay}>
-          {isRestDay ? '😴 Rest Day activ' : 'Set Rest Day'}
+          {isRestDay ? '😴 Rest Day' : 'Set Rest Day'}
         </button>
       </div>
 
@@ -151,37 +138,15 @@ Răspunde în română în maximum 4 rânduri:
               onChange={e => setNewExercise({ ...newExercise, name: e.target.value })}
             />
             <div className="exercise-inputs-row">
-              <input
-                className="exercise-input small"
-                placeholder="Seturi"
-                type="number"
-                value={newExercise.sets}
-                onChange={e => setNewExercise({ ...newExercise, sets: e.target.value })}
-              />
-              <input
-                className="exercise-input small"
-                placeholder="Rep"
-                type="number"
-                value={newExercise.reps}
-                onChange={e => setNewExercise({ ...newExercise, reps: e.target.value })}
-              />
-              <input
-                className="exercise-input small"
-                placeholder="Kg"
-                type="number"
-                value={newExercise.weight}
-                onChange={e => setNewExercise({ ...newExercise, weight: e.target.value })}
-              />
+              <input className="exercise-small" placeholder="Seturi" type="number" value={newExercise.sets} onChange={e => setNewExercise({ ...newExercise, sets: e.target.value })} />
+              <input className="exercise-small" placeholder="Rep" type="number" value={newExercise.reps} onChange={e => setNewExercise({ ...newExercise, reps: e.target.value })} />
+              <input className="exercise-small" placeholder="Kg" type="number" value={newExercise.weight} onChange={e => setNewExercise({ ...newExercise, weight: e.target.value })} />
             </div>
             <button className="add-exercise-btn" onClick={addExercise}>+ Adaugă</button>
           </div>
 
           {aiLoading && <div className="ai-loading">⏳ AI-ul analizează...</div>}
-          {aiResponse && (
-            <div className="ai-response">
-              <p>{aiResponse}</p>
-            </div>
-          )}
+          {aiResponse && <div className="ai-response"><p>{aiResponse}</p></div>}
         </>
       )}
 
